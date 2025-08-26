@@ -5,7 +5,7 @@ num = 0
 same = []
 
 for i in fruits:
-    if i[1] == s or i[2] == s:
+    if i[2] == s or i[3] == s:
         num += 1
         same.append(i)
     else:
