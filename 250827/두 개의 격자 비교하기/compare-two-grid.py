@@ -7,7 +7,7 @@ arr1 = [
 
 arr2 = [
     list(map(int, input().split()))
-    for _ in range(M)
+    for _ in range(N)
 ]
 
 for i in range(N):
