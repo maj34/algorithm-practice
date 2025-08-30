@@ -12,7 +12,7 @@ def multiply(a, c):
     return a*c
 
 def divide(a, c):
-    return a/c
+    return a//c
 
 if o == "+":
     print(a, o, c, "=", plus(a, c))
