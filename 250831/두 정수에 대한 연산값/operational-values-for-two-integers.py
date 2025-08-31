@@ -10,5 +10,5 @@ def solution(a, b):
         a *= 2
         return a, b
 
-for i in solution(a, b):
-    print(i, end=" ")
+a, b = solution(a, b)
+print(a, b)
