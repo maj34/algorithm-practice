@@ -8,5 +8,8 @@ while True:
     digits.append(n%2)
     n //= 2
 
-for i in digits[::-1]:
-    print(i, end="")
+if len(digits) == 0:
+    print(0)
+else:
+    for i in digits[::-1]:
+        print(i, end="")
