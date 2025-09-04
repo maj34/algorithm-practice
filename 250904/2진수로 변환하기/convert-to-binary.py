@@ -1,6 +1,8 @@
 n = int(input())
 
-print(format(n, 'b'))
+# print(format(n, 'b'))
+print(bin(n)[2:])
+
 # digits = []
 # while True:
 #     if n < 1:
