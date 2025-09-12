@@ -1,7 +1,7 @@
 arr = list(map(int, input().split()))
 
 val_sum=0
-for i in arr:
+for i in range(len(arr)):
     if i%2!=0:
         val_sum+=arr[i]
 
@@ -10,7 +10,7 @@ print(val_sum, end=" ")
 idx=2
 val_sum=0
 num=0
-for j in arr:
+for j in range(len(arr)):
     if idx <= len(arr)-1:
         val_sum+=arr[idx] 
         idx+=3
