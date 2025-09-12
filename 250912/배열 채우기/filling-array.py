@@ -7,5 +7,4 @@ for i in arr:
     else:
         reversed_arr.append(i)
 
-for j in reversed_arr[::-1]:
-    print(j, end=" ")
+print(*reversed_arr[::-1])
