@@ -6,7 +6,7 @@ for i in arr:
         break
     elif i==100:
         result[-1] += 1
-    elif i<100:
+    elif 10<=i<100:
         result[i//10-1] += 1
 
 idx=100
