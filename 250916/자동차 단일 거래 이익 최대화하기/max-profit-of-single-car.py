@@ -1,21 +1,20 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
+minimum=min(arr)
+maximum=max(arr)
 max_arr=[]
 min_arr=[]
 
-for i in arr[arr.index(min(arr)):]:
+# 최솟값을 기준으로 최댓값 찾기
+for i in arr[arr.index(minimum):]:
     max_arr.append(i)
-for j in arr[:arr.index(max(arr))]:
+right_max = max(max_arr)
+
+# 최댓값을 기준으로 최솟값 찾기
+for j in arr[:arr.index(maximum)+1]:
     min_arr.append(j)
+left_min = min(min_arr)
 
-if len(max_arr)==0 or len(min_arr)==0:
-    profit = 0
-elif max(max_arr)-min(arr) >= min(min_arr)-max(arr):
-    profit = max(max_arr)-min(arr)
-elif min(min_arr)-max(arr) > max(max_arr)-min(arr):
-    profit = min(min_arr)-max(arr)
-else:
-    profit = 0
-
+profit = max(right_max - minimum, left_min - maximum)
 print(profit)
