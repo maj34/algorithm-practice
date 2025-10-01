@@ -46,7 +46,7 @@ start = square[0][0]
 end = square[R - 1][C - 1]
 if start == end:
     print(0)
-    # exit(0)
+    exit(0)
 
 answer = 0
 for i, sq in enumerate(square):
