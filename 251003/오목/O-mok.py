@@ -24,3 +24,5 @@ for i in range(len(board)):
                             print(winner_arr[2][0] + 1, winner_arr[2][1] + 1)
                             exit(0)
 
+print(0)
+
