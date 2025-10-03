@@ -11,7 +11,7 @@ for i in range(len(board)):
             winner = board[i][j]
             for idx, m in enumerate(movement):
                 winner_arr = [[i, j]]
-                if 0 <= i + m[0] < len(board) or 0 <= j + m[1] < len(board[0]):
+                if 0 <= i + m[0] < len(board) and 0 <= j + m[1] < len(board[0]):
                     if board[i + m[0]][j + m[1]] == winner: # 두 번째 돌도 맞음
                         winner_arr.append([i + m[0], j + m[1]])
                         # print("winner_arr:", winner_arr)
