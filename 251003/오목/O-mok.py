@@ -22,4 +22,5 @@ for i in range(len(board)):
                         if len(winner_arr) == 5:
                             print(winner)
                             print(winner_arr[2][0] + 1, winner_arr[2][1] + 1)
+                            exit(0)
 
