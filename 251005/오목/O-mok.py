@@ -31,5 +31,8 @@ winner, mid_pos = find_winner(1)
 if winner == 0:
     winner, mid_pos = find_winner(2)
 
-print(winner)
-print(*mid_pos)
+if winner == 0:
+    print(0)
+else:
+    print(winner)
+    print(*mid_pos)
