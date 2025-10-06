@@ -1,30 +1,35 @@
 n, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
-is_consecutive = 0
 
-# 행 기준 연속적인 숫자 판단
-for row in grid:
-    cnt = 1
-    for i in range(n-1):
-        if row[i] == row[i+1]:
-            cnt += 1
-        if cnt >= m:
-            is_consecutive += 1
-            break
-            
-# 열 기준 연속적인 숫자 판단
-col_val = [[] for _ in range(n)]
-for i in range(n):
-    for j in range(n):
-        col_val[i].append(grid[j][i])
+def consecutive_cnt(array):
+    max_res = 0
+    answer = 0
+    start = None
+    for arr in array:
+        if arr == start: # consecutive
+            start = arr
+            answer += 1
+        else: # not consecutive
+            start = arr
+            if answer > max_res:
+                max_res = answer
+            answer = 1
+    if answer > max_res:
+        max_res = answer
+    return max_res
+    
+ans = 0
+for g in grid:
+    if consecutive_cnt(g) >= m:
+        ans += 1
 
-for col in col_val:
-    cnt = 1
-    for i in range(n-1):
-        if col[i] == col[i+1]:
-            cnt += 1
-        if cnt >= m:
-            is_consecutive += 1
-            break
+rev_arr = [[] for _ in range(len(grid))]
+for i in range(len(grid[0])):
+    for j in range(len(grid)):
+        rev_arr[i].append(grid[j][i])
 
-print(is_consecutive)
+for g in rev_arr:
+    if consecutive_cnt(g) >= m:
+        ans += 1
+
+print(ans)
