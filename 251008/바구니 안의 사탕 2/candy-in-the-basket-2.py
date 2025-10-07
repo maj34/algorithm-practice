@@ -3,7 +3,10 @@ N, K = map(int, input().split())
 candy_dict = {}
 for _ in range(N):
     c, p = map(int, input().split())
-    candy_dict[p] = c
+    if p in candy_dict:
+        candy_dict[p] += c
+    else:
+        candy_dict[p] = c
 
 candy_dict = dict(sorted(candy_dict.items()))
 candy_keys = candy_dict.keys()
