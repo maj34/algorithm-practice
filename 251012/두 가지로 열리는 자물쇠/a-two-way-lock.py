@@ -7,7 +7,8 @@ llst = [i for i in range(1, N+1)]
 def valid_dial(num):
     lst = []
     for i in range(-2, 3):
-        lst.append(llst[llst.index(num)+i])
+        tmp = (llst.index(num)+i) % N
+        lst.append(llst[tmp])
     return lst
 
 a1_lst, b1_lst, c1_lst = valid_dial(a1), valid_dial(b1), valid_dial(c1)
