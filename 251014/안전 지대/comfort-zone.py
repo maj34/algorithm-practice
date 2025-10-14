@@ -7,13 +7,24 @@ def in_range(x, y):
 def can_go(x, y, h, visited):
     return in_range(x, y) and not visited[x][y] and grid[x][y]>h
 
+# def dfs(x, y, h, visited):
+#     visited[x][y] = True
+#     # 상하좌우 탐색
+#     for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+#         nx, ny = x+dx, y+dy
+#         if can_go(nx, ny, h, visited):
+#             dfs(nx, ny, h, visited)
+
 def dfs(x, y, h, visited):
+    stack = [(x, y)]
     visited[x][y] = True
-    # 상하좌우 탐색
-    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-        nx, ny = x+dx, y+dy
-        if can_go(nx, ny, h, visited):
-            dfs(nx, ny, h, visited)
+    while stack:
+        cx, cy = stack.pop()
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = cx + dx, cy + dy
+            if can_go(nx, ny, h, visited):
+                visited[nx][ny] = True
+                stack.append((nx, ny))
 
 area = {}
 max_height = max(max(grid))
