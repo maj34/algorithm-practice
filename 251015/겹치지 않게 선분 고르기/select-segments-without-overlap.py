@@ -1,8 +1,12 @@
 n = int(input())
-x1, x2 = [], []
+lines = [tuple(map(int, input().split())) for _ in range(n)]
 
-for _ in range(n):
-    a, b = map(int, input().split())
-    x1.append(a)
-    x2.append(b)
+lines.sort(key=lambda x:x[1])
 
+cnt, end = 0, 0
+for l, r in lines:
+    if l > end:
+        cnt += 1
+        end = r
+
+print(cnt)
