@@ -19,14 +19,8 @@ def bfs(si, sj):
             if 0<=ni<n and 0<=nj<n and not visited[ni][nj] and grid[ni][nj] == 0:
                 q.append((ni, nj))
                 visited[ni][nj] = True
-    return visited
     
-visited_set = []
 for k in points:
-    visited = bfs(k[0]-1, k[1]-1)
-    for i in range(n):
-        for j in range(n):
-            if visited[i][j] == True:
-                visited_set.append((i, j))
+    bfs(k[0]-1, k[1]-1)
         
-print(len(set(visited_set)))
+print((sum(visited[i][j]==True for i in range(n) for j in range(n))))
