@@ -34,12 +34,12 @@ for i in range(N):
             lst.append((i, j))
 
 min_dist = 10000
-for a, b in combinations(lst, 2):
-    arr[a[0]][a[1]] = 0
-    arr[b[0]][b[1]] = 0
+for comb in combinations(lst, K):
+    for (i, j) in comb:
+        arr[i][j] = 0
     dist = bfs(r1-1, c1-1, arr)
     min_dist = min(min_dist, dist)
-    arr[a[0]][a[1]] = 1
-    arr[b[0]][b[1]] = 1
+    for (i, j) in comb:
+        arr[i][j] = 1
 
 print(-1 if min_dist == 10000 else min_dist) 
