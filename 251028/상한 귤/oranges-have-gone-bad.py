@@ -11,17 +11,17 @@ def bfs():
     for i in range(N):
         for j in range(N):
             if arr[i][j] == 2:
-                q.append((i, j, 0))
+                q.append((i, j))
                 visited[i][j] = True
 
     while q:
-        ci, cj, time = q.popleft()
+        ci, cj = q.popleft()
 
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = ci+di, cj+dj
             if 0<=ni<N and 0<=nj<N and not visited[ni][nj] and arr[ni][nj] == 1:
                 arr[ni][nj] = arr[ci][cj] + 1
-                q.append((ni, nj, time+1))
+                q.append((ni, nj))
                 visited[ni][nj] = True
 
 bfs()
