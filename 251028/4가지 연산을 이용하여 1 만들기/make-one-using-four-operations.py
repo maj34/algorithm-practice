@@ -4,7 +4,7 @@ N = int(input())
 
 def bfs(N):
     q = deque()
-    visited = [False for _ in range(1, 3000001)]
+    visited = [False for _ in range(1, 3000002)]
 
     q.append((1, 0))
     visited[1] = True
