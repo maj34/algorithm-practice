@@ -1,16 +1,24 @@
 N = int(input())
 
-# Bottom-Up
-dp = [0] * (N+1)
+MOD = 1000000007
+dp = [0] * (N + 1)
+sum_dp = [0] * (N + 1)
 
-for i in range(1, N+1):
-    if i == 1:
-        dp[1] = 2
-    elif i == 2:
-        dp[2] = 7
-    elif i == 3:
-        dp[3] = 22
-    else:
-        dp[i] = dp[i-2]*7 + dp[i-1]*2
+dp[0] = 1
+if N >= 1:
+    dp[1] = 2
+if N >= 2:
+    dp[2] = 7
 
-print(dp[N]%1000000007)
+# 누적합 기저 초기화 (핵심 수정 부분)
+sum_dp[0] = dp[0]
+if N >= 1:
+    sum_dp[1] = (sum_dp[0] + dp[1]) % MOD
+if N >= 2:
+    sum_dp[2] = (sum_dp[1] + dp[2]) % MOD
+
+for i in range(3, N + 1):
+    dp[i] = (2 * dp[i-1] + 3 * dp[i-2] + 2 * sum_dp[i-3]) % MOD
+    sum_dp[i] = (sum_dp[i-1] + dp[i]) % MOD
+
+print(dp[N] % MOD)
