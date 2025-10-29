@@ -11,6 +11,6 @@ for i in range(1, N+1):
     elif i == 3:
         dp[3] = 22
     else:
-        dp[i-2]*7 + dp[i-1]*2
+        dp[i] = dp[i-2]*7 + dp[i-1]*2
 
 print(dp[N]%1000000007)
