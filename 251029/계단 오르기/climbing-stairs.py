@@ -1,5 +1,6 @@
 N = int(input())
 
+# Bottom-Up
 # dp = [0, 0, 1, 1] + [0] * (N-3)
 
 # for i in range(4, N+1):
@@ -7,9 +8,11 @@ N = int(input())
 
 # print(0 if dp[N]==0 else dp[N]%10007)
 
-def stair(N):
-    memo = [-1] * (N+1)
-    if memo[N] != -1: # 기존에 있는 값 반환
+# Top-Down
+memo = [-1] * (N+1)
+
+def stair(N):    
+    if memo[N] != -1:
         return memo[N]
 
     if N <= 1:
