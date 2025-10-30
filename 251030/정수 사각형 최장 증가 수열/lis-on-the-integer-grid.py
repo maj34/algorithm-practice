@@ -1,4 +1,6 @@
-from collections import deque
+# from collections import deque
+import sys
+sys.setrecursionlimit(10**6)
 
 N = int(input())
 grid = [list(map(int, input().split())) for _ in range(N)]
