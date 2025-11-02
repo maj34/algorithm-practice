@@ -16,10 +16,5 @@ def dfs(i, j):
                 dp[i][j] = max(dp[i][j], dfs(ni, nj) + 1)
 
     return dp[i][j]
-    
-ans = 0
-for i in range(N):
-    for j in range(M):
-        ans = max(ans, dfs(i, j))
 
-print(ans)
+print(dfs(0, 0))
