@@ -5,18 +5,15 @@ for _ in range(N):
     x1.append(a)
     x2.append(b)
 
-segments = []
-for i in range(N):
-    segments.append((x1[i], x2[i]))
-
+segments = list(zip(x1, x2))
 segments.sort(key=lambda x: x[1])
 
 count = 0
-last_end_time = 0
+end_time = -float('inf')
 
 for start, end in segments:
-    if start >= last_end_time:
+    if start > end_time: 
         count += 1
-        last_end_time = end
+        end_time = end
 
 print(count)
